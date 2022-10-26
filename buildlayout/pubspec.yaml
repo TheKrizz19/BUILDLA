@@ -20,3 +20,6 @@ flutter:
   uses-material-design: true
   assets:
     - images/lake.jpg
+    - images/cocada3.png
+    - images/latachongos.png
+    - images/flan2.png
