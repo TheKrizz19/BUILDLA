@@ -1,11 +1,14 @@
 import 'package:buildlayout/Layout3.dart';
+import 'package:buildlayout/Layout4.dart';
+import 'package:buildlayout/Perfil.dart';
+import 'package:buildlayout/Registro.dart';
 import 'package:flutter/material.dart';
 import 'Layout2.dart';
 
 
 void main() {
   
-  runApp(MaterialApp(debugShowCheckedModeBanner: false,home: Layout2()));
+  runApp(MaterialApp(debugShowCheckedModeBanner: false,home: Layout4()));
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
             child:Text('Ir al Catalogo'),
             onPressed:(){
               Navigator.push(
-                context, MaterialPageRoute (builder:(context)=> Layout2()),
+                context, MaterialPageRoute (builder:(context)=> Layout4()),
               );
             }
 

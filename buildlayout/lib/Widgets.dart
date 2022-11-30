@@ -1,8 +1,16 @@
 import 'package:buildlayout/Layout1.dart';
+import 'package:buildlayout/Layout2.dart';
 import 'package:buildlayout/Layout3.dart';
+import 'package:buildlayout/Recuperarcontrasenia.dart';
+import 'package:buildlayout/Registro.dart';
 import 'package:flutter/material.dart';
 
+
 class Widgets extends StatelessWidget {
+  String correo="";
+  String con="";
+  String nom="";
+  String ap=""; 
   @override 
   Widget build (BuildContext conetext ){
     return MaterialApp(debugShowCheckedModeBanner: false);
@@ -183,6 +191,610 @@ static verdetalles(String image, String descripcion, BuildContext context){
   );
 
 }
-}
+static formularioinicio(BuildContext context){
+return Container(
+        width: 800,
+        height: 700,
+        child: Stack(children: <Widget>[
+          const Positioned(
+              top: 150,
+              left: 80,
+              child: Text(
+                'Iniciar sesión',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color.fromARGB(255, 145, 144, 144),
+                    fontFamily: 'Amiko',
+                    fontSize: 32,
+                    letterSpacing:
+                        0,
+                    fontWeight: FontWeight.normal,
+                    height: 1),
+              )),
+          const Positioned(
+              top: 100,
+              left: 37,
+              child:
+                  Divider(color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+          const Positioned(
+              top: 100,
+              left: 37,
+              child:
+                  Divider(color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+          Positioned(
+              top: 300,
+              left: 110,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(const Size(200, 50)),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Correo electronico',
+                      hintText: 'Ingresa tu correo electronico',
+                    ),
+                    onSaved: (String? correo) {
+                      correo = correo.toString();
+                    },
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: Color.fromARGB(159, 0, 0, 0),
+                        fontFamily: 'Berlin Sans FB',
+                        fontSize: 13,
+                        letterSpacing:
+                            0,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ))),
+          Positioned(
+              top: 350,
+              left: 110,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(const Size(200, 50)),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Contraseña',
+                      hintText: 'Ingresa tu contraseña',
+                    ),
+                    onSaved: (String? con) {
+                      con = con.toString();
+                    },
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: Color.fromARGB(159, 0, 0, 0),
+                        fontFamily: 'Berlin Sans FB',
+                        fontSize: 13,
+                        letterSpacing:
+                            0,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ))),
+
+          Positioned(
+              top: 420,
+              left: 110,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Recuperarcontrasenia()),
+                  );
+                },
+                child: const Text(
+                  "Olvidaste tu contraseña?",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                  selectionColor: Colors.blue,
+                ),
+              )),
+              const  Positioned(
+              top: 370, 
+              left: 260, 
+              child: Icon(Icons.remove_red_eye)),
+          Positioned(
+              top: 500,
+              left: 120,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Layout2()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: const Color.fromRGBO(84, 113, 214, 1)),
+                child: const Text(
+                  'Iniciar Sesion',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Amiko',
+                      fontSize: 16,
+                      letterSpacing:
+                          0,
+                      fontWeight: FontWeight.normal,
+                      height: 1),
+                      
+                ),
+              ),
+              ),
+               Positioned(
+              top: 500,
+              left: 270,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Registro()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: const Color.fromRGBO(84, 113, 214, 1)),
+                child: const Text(
+                  'Crear Cuenta',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Amiko',
+                      fontSize: 16,
+                      letterSpacing:
+                          0,
+                      fontWeight: FontWeight.normal,
+                      height: 1),
+                      
+                ),
+              ),
+              )
+        
+        ]));
+  }
+  static cuadroregistro (BuildContext context){
+          
+return Container(
+        width: 800,
+        height: 700,
+        child: Stack(children: <Widget>[
+          const Positioned(
+              top: 150,
+              left: 80,
+              child: Text(
+                'Crear Cuenta',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color.fromARGB(255, 145, 144, 144),
+                    fontFamily: 'Amiko',
+                    fontSize: 32,
+                    letterSpacing:
+                        0,
+                    fontWeight: FontWeight.normal,
+                    height: 1),
+              )),
+          const Positioned(
+              top: 100,
+              left: 37,
+              child:
+                  Divider(color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+          const Positioned(
+              top: 100,
+              left: 37,
+              child:
+                  Divider(color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+          Positioned(
+              top: 300,
+              left: 110,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(const Size(200, 50)),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Nombres',
+                      hintText: 'Ingresa tu nombre',
+                    ),
+                    onSaved: (String? nom) {
+                      nom = nom.toString();
+                    },
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: Color.fromARGB(159, 0, 0, 0),
+                        fontFamily: 'Berlin Sans FB',
+                        fontSize: 13,
+                        letterSpacing:
+                            0,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ))),
+          Positioned(
+              top: 350,
+              left: 110,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(const Size(200, 50)),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Apellidos',
+                      hintText: 'Ingresa tus apellidos',
+                    ),
+                    onSaved: (String? ap) {
+                      ap = ap.toString();
+                    },
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: Color.fromARGB(159, 0, 0, 0),
+                        fontFamily: 'Berlin Sans FB',
+                        fontSize: 13,
+                        letterSpacing:
+                            0,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ))),
+                   Positioned(
+              top: 400,
+              left: 110,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(const Size(200, 50)),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Correo Electrónico',
+                      hintText: 'Introduzca su correo electrónico',
+                    ),
+                    onSaved: (String? correo) {
+                      correo = correo.toString();
+                    },
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: Color.fromARGB(159, 0, 0, 0),
+                        fontFamily: 'Berlin Sans FB',
+                        fontSize: 13,
+                        letterSpacing:
+                            0,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ))),
+                  Positioned(
+              top: 450,
+              left: 110,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(const Size(200, 50)),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Contraseña',
+                      hintText: 'Ingrese una contraseña',
+                    ),
+                    onSaved: (String? con) {
+                      con = con.toString();
+                    },
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: Color.fromARGB(159, 0, 0, 0),
+                        fontFamily: 'Berlin Sans FB',
+                        fontSize: 13,
+                        letterSpacing:
+                            0,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ))),
+                  Positioned(
+              top: 500,
+              left: 110,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(const Size(200, 50)),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Contraseña',
+                      hintText: 'Confirme nuevamente su contraseña',
+                    ),
+                    onSaved: (String? con) {
+                      con = con.toString();
+                    },
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: Color.fromARGB(159, 0, 0, 0),
+                        fontFamily: 'Berlin Sans FB',
+                        fontSize: 13,
+                        letterSpacing:
+                            0,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ))),
+          Positioned(
+              top: 570,
+              left: 120,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Layout2()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 252, 106, 8)),
+                child: const Text(
+                  'Crear Cuenta',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Amiko',
+                      fontSize: 16,
+                      letterSpacing:
+                          0,
+                      fontWeight: FontWeight.normal,
+                      height: 1),
+                ),
+              ))
+        ]));
+  }
+  
+  static perfil(BuildContext context){
+    return Container(
+      child: Column (
+        children: [
+        Padding (
+          padding: const EdgeInsets.only(left: 20,right: 20,top: 35),
+          child: Row(
+            children: const [
+              Icon(Icons.person,
+              size:70,
+              ),
+            SizedBox(
+              width: 30,
+            ),
+            Text(
+              'Ventana Usuario',
+              style:TextStyle(
+              fontFamily: 'Berlin Sans FB',
+              ),
+                
+              ),
+              ],
+          ),
+      ),
+       SizedBox(
+         height: 600,
+        
+      
+      
+      child:Stack(
+        children: <Widget>[
+          Positioned(
+        top: 50,
+        left: 100,
+        child: Container(
+        width: 263,
+        height: 460,
+        decoration: const BoxDecoration(
+          borderRadius : BorderRadius.only(
+            topLeft: Radius.circular(47),
+            topRight: Radius.circular(47),
+            bottomLeft: Radius.circular(47),
+            bottomRight: Radius.circular(47),
+          ),
+      color : Color.fromRGBO(255, 69, 0, 0.8500000238418579),
+  )
+      )
+      ),const Positioned(
+        top: 70,
+        left: 130,
+        child: Text('Nombre Usuario', textAlign: TextAlign.left, style: TextStyle(
+        color: Color.fromRGBO(0, 0, 0, 1),
+        fontFamily: 'Inter',
+        fontSize: 20,
+        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+        fontWeight: FontWeight.normal,
+        height: 1
+      ),)
+      ),const Positioned(
+        top: 312,
+        left: 130,
+        child: Text('Borrar Cuenta', textAlign: TextAlign.left, style: TextStyle(
+        color: Color.fromRGBO(0, 0, 0, 1),
+        fontFamily: 'Inter',
+        fontSize: 20,
+        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+        fontWeight: FontWeight.normal,
+        height: 1
+      ),)
+      ),const Positioned(
+        top: 249,
+        left: 130,
+        child: Text('Cerrar Sesión', textAlign: TextAlign.left, style: TextStyle(
+        color: Color.fromRGBO(0, 0, 0, 1),
+        fontFamily: 'Inter',
+        fontSize: 20,
+        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+        fontWeight: FontWeight.normal,
+        height: 1
+      ),)
+      ),const Positioned(
+        top: 130,
+        left: 130,
+        child: Text('Correo electrónico', textAlign: TextAlign.left, style: TextStyle(
+        color: Color.fromRGBO(0, 0, 0, 1),
+        fontFamily: 'Inter',
+        fontSize: 20,
+        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+        fontWeight: FontWeight.normal,
+        height: 1
+      ),)
+      ),const Positioned(
+        top: 188,
+        left: 130,
+        child: Text('Cambiar la contraseña', textAlign: TextAlign.left, style: TextStyle(
+        color: Color.fromRGBO(0, 0, 0, 1),
+        fontFamily: 'Inter',
+        fontSize: 20,
+        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+        fontWeight: FontWeight.normal,
+        height: 1,
+      ),
+      )
+      ),
+            
+      Positioned(
+      width: 800,
+      height: 48,
+      
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+        top: 0,
+        left: 155,
+        child: Container(
+        width: 147,
+        height: 48,
+        decoration: const BoxDecoration(
+          borderRadius : BorderRadius.only(
+            topLeft: Radius.circular(22),
+            topRight: Radius.circular(22),
+            bottomLeft: Radius.circular(22),
+            bottomRight: Radius.circular(22),
+          ),
+      color : Color.fromRGBO(255, 69, 0, 1),
+  )
+      )
+      ),const Positioned(
+        top: 12,
+        left: 162,
+        child: Text('Activar edición', textAlign: TextAlign.left, style: TextStyle(
+        color: Color.fromRGBO(0, 0, 0, 1),
+        fontFamily: 'Inter',
+        fontSize: 20,
+        letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+        fontWeight: FontWeight.normal,
+        height: 1
+      ),)
+      ),
+        ]
+      )
+    )
+        ]
+      )
+    )
+      ],
+      )
+
+
+    );
+  }
+  static reccon(BuildContext context){
+    return Container(
+        width: 800,
+        height: 700,
+        child: Stack(children: <Widget>[
+          const Positioned(
+              top: 150,
+              left: 80,
+              child: Text(
+                'Recuperar Contraseña',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color.fromARGB(255, 145, 144, 144),
+                    fontFamily: 'Amiko',
+                    fontSize: 32,
+                    letterSpacing:
+                        0,
+                    fontWeight: FontWeight.normal,
+                    height: 1),
+              )),
+          const Positioned(
+              top: 100,
+              left: 37,
+              child:
+                  Divider(color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+          const Positioned(
+              top: 100,
+              left: 37,
+              child:
+                  Divider(color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+          Positioned(
+              top: 300,
+              left: 110,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(const Size(200, 50)),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Ingresa tu nueva contraseña',
+                      hintText: 'Ingresa nuevamente tu contraseña',
+                    ),
+                    onSaved: (String? correo) {
+                      correo = correo.toString();
+                    },
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: Color.fromARGB(159, 0, 0, 0),
+                        fontFamily: 'Berlin Sans FB',
+                        fontSize: 13,
+                        letterSpacing:
+                            0,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ))),
+          Positioned(
+              top: 350,
+              left: 110,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(const Size(200, 50)),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Contraseña',
+                      hintText: 'Ingresa tu contraseña',
+                    ),
+                    onSaved: (String? con) {
+                      con = con.toString();
+                    },
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: Color.fromARGB(159, 0, 0, 0),
+                        fontFamily: 'Berlin Sans FB',
+                        fontSize: 13,
+                        letterSpacing:
+                            0,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ))),
+
+          Positioned(
+              top: 420,
+              left: 110,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Registro()),
+                  );
+                },
+               
+              )),
+              const  Positioned(
+              top: 370, 
+              left: 260, 
+              child: Icon(Icons.remove_red_eye)),
+          Positioned(
+              top: 500,
+              left: 120,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Layout2()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: const Color.fromRGBO(84, 113, 214, 1)),
+                child: const Text(
+                  'Confirmar cambio',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Amiko',
+                      fontSize: 16,
+                      letterSpacing:
+                          0,
+                      fontWeight: FontWeight.normal,
+                      height: 1),
+                ),
+              ))
+        ]));
+  }
+
+  }
+
+
+
+
 
 

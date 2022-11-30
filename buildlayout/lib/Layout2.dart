@@ -1,4 +1,5 @@
 import 'package:buildlayout/Layout3.dart';
+import 'package:buildlayout/Perfil.dart';
 import 'package:buildlayout/Widgets.dart';
 import 'package:flutter/material.dart';
 import 'Layout1.dart';
@@ -10,13 +11,16 @@ class Layout2 extends StatelessWidget {
           @override
           Widget build(BuildContext context) {
          return Container(child: Stack(children:<Widget>[Scaffold(
-           appBar: AppBar(title:Text('Inicio'),
+           appBar: AppBar(title:Text('Inicio'),backgroundColor:Color.fromARGB(240, 255, 102, 0),
            actions: <Widget>[
              IconButton(onPressed:(){
                Navigator.push(context,
     MaterialPageRoute(builder: (context) => Layout1()));
     }, icon: const Icon(Icons.shopping_cart)),
-             IconButton(onPressed:(){}, icon: const Icon(Icons.person)),
+             IconButton(onPressed:(){
+               Navigator.push(context,
+               MaterialPageRoute(builder:(context)=> Perfil()));
+             }, icon: const Icon(Icons.person)),
            ],
            
          
