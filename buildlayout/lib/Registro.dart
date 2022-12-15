@@ -12,7 +12,7 @@ class Registro extends StatelessWidget {
            ),
            body: ListView(children:<Widget>[
           
-             Container(width:300 ,height: 900,child:Widgets.cuadroregistro(context))
+             Container(width:300 ,height: 900,child:Widgets().cuadroregistro(context))
            ])
          )],)
           

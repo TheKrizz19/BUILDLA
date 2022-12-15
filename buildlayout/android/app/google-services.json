@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "933732335023",
+    "project_id": "dulces-app",
+    "storage_bucket": "dulces-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933732335023:android:6ee6fdc7c12e6dacf0835a",
+        "android_client_info": {
+          "package_name": "com.example.buildlayout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933732335023-s6pouhu2uck86n29ers2tg7mt17hlsgn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLty9MqJIZB2Pe3mj1-PWrIQwxH40ml9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933732335023-s6pouhu2uck86n29ers2tg7mt17hlsgn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

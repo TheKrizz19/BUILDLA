@@ -3,14 +3,16 @@ import 'package:buildlayout/Layout2.dart';
 import 'package:buildlayout/Layout3.dart';
 import 'package:buildlayout/Recuperarcontrasenia.dart';
 import 'package:buildlayout/Registro.dart';
+import 'package:buildlayout/services/firebase_crud.dart';
 import 'package:flutter/material.dart';
 
 
 class Widgets extends StatelessWidget {
-  String correo="";
-  String con="";
-  String nom="";
-  String ap=""; 
+  final correo=TextEditingController();
+  final con=TextEditingController();
+  final con2=TextEditingController();
+  final nom=TextEditingController();
+  final ap=TextEditingController(); 
   @override 
   Widget build (BuildContext conetext ){
     return MaterialApp(debugShowCheckedModeBanner: false);
@@ -345,7 +347,7 @@ return Container(
         
         ]));
   }
-  static cuadroregistro (BuildContext context){
+   cuadroregistro (BuildContext context){
           
 return Container(
         width: 800,
@@ -382,13 +384,12 @@ return Container(
               child: ConstrainedBox(
                   constraints: BoxConstraints.tight(const Size(200, 50)),
                   child: TextFormField(
+                    controller: nom,
                     decoration: const InputDecoration(
                       labelText: 'Nombres',
                       hintText: 'Ingresa tu nombre',
                     ),
-                    onSaved: (String? nom) {
-                      nom = nom.toString();
-                    },
+                   
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         color: Color.fromARGB(159, 0, 0, 0),
@@ -405,13 +406,12 @@ return Container(
               child: ConstrainedBox(
                   constraints: BoxConstraints.tight(const Size(200, 50)),
                   child: TextFormField(
+                    controller:ap,
                     decoration: const InputDecoration(
                       labelText: 'Apellidos',
                       hintText: 'Ingresa tus apellidos',
                     ),
-                    onSaved: (String? ap) {
-                      ap = ap.toString();
-                    },
+                   
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         color: Color.fromARGB(159, 0, 0, 0),
@@ -428,13 +428,12 @@ return Container(
               child: ConstrainedBox(
                   constraints: BoxConstraints.tight(const Size(200, 50)),
                   child: TextFormField(
+                    controller: correo,
                     decoration: const InputDecoration(
                       labelText: 'Correo Electrónico',
                       hintText: 'Introduzca su correo electrónico',
                     ),
-                    onSaved: (String? correo) {
-                      correo = correo.toString();
-                    },
+                   
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         color: Color.fromARGB(159, 0, 0, 0),
@@ -451,13 +450,12 @@ return Container(
               child: ConstrainedBox(
                   constraints: BoxConstraints.tight(const Size(200, 50)),
                   child: TextFormField(
+                    controller: con,
                     decoration: const InputDecoration(
                       labelText: 'Contraseña',
                       hintText: 'Ingrese una contraseña',
                     ),
-                    onSaved: (String? con) {
-                      con = con.toString();
-                    },
+                   
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         color: Color.fromARGB(159, 0, 0, 0),
@@ -474,13 +472,12 @@ return Container(
               child: ConstrainedBox(
                   constraints: BoxConstraints.tight(const Size(200, 50)),
                   child: TextFormField(
+                    controller: con2,
                     decoration: const InputDecoration(
                       labelText: 'Contraseña',
                       hintText: 'Confirme nuevamente su contraseña',
                     ),
-                    onSaved: (String? con) {
-                      con = con.toString();
-                    },
+                   
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         color: Color.fromARGB(159, 0, 0, 0),
@@ -495,11 +492,48 @@ return Container(
               top: 570,
               left: 120,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
+                onPressed: () async {
+                  if(nom.text.isNotEmpty&&ap.text.isNotEmpty&&correo.text.isNotEmpty&&con.text.isNotEmpty&&con2.text.isNotEmpty){
+                    if(con.text.toString()==con2.text.toString()){
+                      var response = await FirebaseCrud.addUsuario(Apellidos: ap.text, Contrasenia: con.text, CorreoElectronico: correo.text, Nombre: nom.text);
+                      if(response.code != 200){
+                        showDialog(context: context, builder: (context){
+                          return AlertDialog(
+                            content:
+                            Text(response.message.toString()),
+                          );
+                        });
+                      }else{
+                        showDialog(context: context, builder: (context){
+                          return AlertDialog(
+                            content: Text(response.message.toString()),
+                          );
+                        });
+                        Future.delayed(
+                          const Duration (seconds: 3),
+                       () =>   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Layout2()),
-                  );
+                  ),
+                        );
+                        
+                      }
+                    }else{
+                      showDialog(context: context, builder: (context){
+                        return const AlertDialog(content: Text("Las contraseñas no son iguales"),
+                        );
+                      }
+                      );
+
+                    }
+
+                  }else{
+                    showDialog(context: context, builder: (context){
+                      return const AlertDialog(content: Text("Campos vacíos"),
+                      );
+                    });
+                  }
+                 
                 },
                 style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(255, 252, 106, 8)),
